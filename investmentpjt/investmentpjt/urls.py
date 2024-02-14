@@ -31,6 +31,7 @@ urlpatterns = [
     re_path(r'^accounts/',include('django.contrib.auth.urls')),
     re_path(r'^accounts/signup/$',SignUpView.as_view(), name="signup"),
     re_path(r'^userapp/',include('investmentpjt.userapp.urls')),
+    re_path(r'^investapp/',include('investmentpjt.investapp.urls')),
 
 ]
 

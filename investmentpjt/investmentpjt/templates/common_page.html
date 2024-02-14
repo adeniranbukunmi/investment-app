@@ -69,15 +69,35 @@ https://templatemo.com/tm-580-woox-travel
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
 
-       
+
             <ul class="nav">
                 <li><a href="{% url 'home' %}" class="active">Home</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
                 <li><a href="{% url 'deals' %}">Deals</a></li>
-                <li><a href="{% url 'reservation' %}">Reservation</a></li>
-                <li><a href="{% url 'reservation' %}">Book Yours</a></li>
+                {% comment %} <li><a href="{% url 'reservation' %}">Reservation</a></li> {% endcomment %}
+                {% comment %} <li><a href="{% url 'reservation' %}">Book Yours</a></li> {% endcomment %}
 
-                <!-- start here -->
+                {% comment %} product start {% endcomment %}
+                {% if request.user.is_authenticated %}
+                {% if request.user.is_superuser or request.user.profile.position == " product manager" %}
+                <li>
+                    <div class="dropdown">
+                        <button style="color: #fff;" class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        investement manager
+                        </button>
+                        <ul  class="dropdown-menu">
+                            <li><a style="color: black;" class="dropdown-item" href="{% url 'new_investment' %}"> new investment </a></li>
+                    
+                            <li><a style="color: black;" class="dropdown-item" href="{% url 'invest_catalog' %}">investment catalog</a></li>
+
+                        </ul>
+                    </div>
+                </li>
+                {% endif %}
+                {% endif %}
+
+
+                <!--account dropdown  start here -->
                 {% if request.user.is_authenticated %}
                 <li>
                     <div class="dropdown">

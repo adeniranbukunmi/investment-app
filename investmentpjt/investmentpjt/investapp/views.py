@@ -26,7 +26,7 @@ def uploadInvestProduct(request):
     else:
 
         Invest_form =  Invest_Product_form()
-        return render (request, 'InvestApp/upload_product_form.html', {'product_form': Invest_form, })
+        return render (request, 'investapp/upload_product_form.html', {'product_form': Invest_form, })
     
 @login_required
 def viewCatalog(request):

@@ -31,7 +31,8 @@ class Profile(models.Model):
         ("Accountant", "Accountant"),
         ("Secretary", "Secretary"),
         ("Admin", "Admin"),
-        ("Store Manager", "Store Manager"),
+        ("Store keeper", "Store keeper"),
+        ("product Manager", "product Manager"),
         ("Delivery Agent", "Delivery Agent"),
 
     ]
