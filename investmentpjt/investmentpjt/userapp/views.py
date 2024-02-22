@@ -61,7 +61,7 @@ def deactivateProfile(request, u_id):
     if my_profile.values()[0].get("is_active") == True:
         User.objects.only("is_active").filter(id=u_id).update(is_active=False)
     else:
-        User.objects.only("is_active").filter(id=u_id).update(is_active=True)
+        User.objects.only("is_active").filter(id=u_id).update(is_active=True)    
     return HttpResponsePermanentRedirect(reverse("my_profile", args=(u_id,)))
 
 user_value = ""
@@ -84,6 +84,13 @@ def deleteProfile(request, u_id):
 
 
 
+# user = User.objects.get(id = u_id)
 
+#     if user.is_active:
+#         User.objects.filter(id = u_id).update(is_active = False)
+#         messages.success(request, 'Deactivation successful')
+#     else:
+#         User.objects.filter(id = u_id).update(is_active = True)
+#         messages.success(request, 'Deactivation successful')
 
 

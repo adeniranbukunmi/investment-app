@@ -18,13 +18,14 @@ from django.contrib import admin
 from django.urls import path, include, re_path
 from django.views.generic import TemplateView
 from investmentpjt.userapp.views import SignUpView
+from investmentpjt.investapp.views import marketPlace
 from . import settings
 from django.contrib.staticfiles.urls import static, staticfiles_urlpatterns
 
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path('',TemplateView.as_view(template_name='index.html'),name='home'),
+    path('', marketPlace ,name='home'),
     path('about/',TemplateView.as_view(template_name='about.html'),name='about'),
     path('deals/',TemplateView.as_view(template_name='deals.html'),name='deals'),
     path('reservation/',TemplateView.as_view(template_name='reservation.html'),name='reservation'),

@@ -165,7 +165,7 @@
                                         <a href="{% url 'edit_profile' profile.user_id %}">
                                             <button type="submit" class="button green">Edit Account </button>
                                         </a>
-                                        <a href="<{% url 'deactivate_profile' profile.user_id %}">
+                                        <a href="{% url 'deactivate_profile' profile.user_id %}">
                                             <button type="submit" class="button red">
                                                 {% if profile.user.is_active == 1 %}
                                                     Deactivate

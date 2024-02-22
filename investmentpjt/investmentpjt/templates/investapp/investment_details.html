@@ -1,0 +1,121 @@
+{% extends 'common_page.html' %}
+{% block title %} investment details  {% endblock %}
+
+{% block body_content %}
+
+    <div>
+        <div class='row'>
+            <div class='col-3'></div>
+            <div class='col-md-6 col-12 col-offset-3'>
+
+                {% if investment %}
+                    {% for invest in investment %}
+                    <div class="card">
+                        <header class="card-header">
+                            <p class="card-header-title">
+                                <span class="icon"><i class="md1md1-account"></i></span>
+                                investment details
+                            </p>
+                        </header>
+
+                        <div class="card-content">
+                        {% if invest.product_picture %}
+                            <div class="image w-30 h-10 mx-auto">
+                                <img src="{{invest.product_picture.url}}" alt="{{profile.user.username}}" class="rounded-full" height="200" width=200>
+                            </div>
+                        {% else %}
+                            <div class="image w-30 h-10 mx-auto">
+                                <img src="https://avatars.dicebear.com/v2/initials/{{profile.user.username}}" alt="{{profile.user.username}}" class="rounded-full">
+                            </div>
+                        {% endif %}
+                        <hr>
+                        <div class="field">
+                            <p class="card-header-title">
+                                <span class="icon"><i class="md1md1-account"></i></span>
+                                {{invest.investment_name}}
+                            </p>
+                        </div>
+                        <hr>
+                        <div class="field">
+                            <label class="label">date uploaded</label>
+                            <div class="control">
+                            {{invest.date_upload}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="field">
+                            <label class="label">Phone</label>
+                            <div class="control">
+                                {{profile.phone}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="field">
+                            <label class="label">Total unit</label>
+                            <div class="control">
+                                {{invest.total_unit}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="field">
+                            <label class="label">Minimum unit</label>
+                            <div class="control">
+                                {{invest.minimum_unit}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="field">
+                            <label class="label">maximum unit</label>
+                            <div class="control">
+                                {{invest.maximum_unit}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="field">
+                            <label class="label">price per unit</label>
+                            <div class="control">
+                                {{invest.price_per_unit}}
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="field">
+                            <label class="label">Description</label>
+                            <div class="control">
+                                {{invest.description}}
+                            </div>
+                        </div>
+                       
+                        </div>
+                    </div>
+                    </div>
+                        </div>
+                        <div class="field" style="margin-left:650px; margin-top:20px;">
+                            <a href="{% url 'buy_investment' invest.invest_id %}">
+                                <span style=" color: #0e399c;" class="font-weight-bold">
+                                    invest
+                                </span>
+                            </a>
+                            
+                        </div>
+                    {% endfor %}
+                {% endif %}
+            </div>
+            </div>
+            <div class='col-3'></div>
+        </div>
+    </div>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
